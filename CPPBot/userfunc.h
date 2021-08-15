@@ -285,6 +285,11 @@ void GrowtopiaBot::OnTalkBubble(int netID, string bubbleText, int type)
 	{
 		SendPacket(2, "action|input\n|text|/dance", peer);
 	}
+	if (bubbleText.find("!respawn") != string::npos)
+	{
+	       SendPacket(2, "action|respawn", peer);
+	       SendPacket(2, "action|input\n|text|Successfully respawned.", peer);
+	}
 	if (bubbleText.find("!about") != string::npos || bubbleText.find("!help") != string::npos)
 	{
 		SendPacket(2, "action|input\n|text|This is bot from Growtopia Noobs. Modified my DrOreo002", peer);
